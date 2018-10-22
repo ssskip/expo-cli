@@ -5,15 +5,15 @@ require 'rubygems'
 require 'funcs'
 require 'json'
 require 'base64'
-  
+
 $bundleId, $appName, $username = ARGV[0].gsub(/\s+/m, ' ').strip.split(" ")
 $version = ">= 0.a"
 $result = nil
 
 captured_stderr = with_captured_stderr{
   ARGV.clear
-  ARGV<< "produce"
-  ARGV<< "--app_identifier"<< $bundleId<< "--app_name"<< $appName<< "--username"<< $username
+  ARGV << "produce"
+  ARGV << "--app_identifier" << $bundleId << "--app_name" << $appName << "--username" << $username
 
   begin
     if Gem.respond_to?(:activate_bin_path)
